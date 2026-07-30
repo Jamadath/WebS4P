@@ -1,0 +1,161 @@
+/* Reseteo para eliminar cualquier scroll por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Oculta cualquier barra de desplazamiento */
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Contenedor general centrado vertical y horizontalmente */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center;     /* Centra el contenido horizontalmente */
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  gap: 20px;               /* Espacio entre el menú y el logo */
+}
+
+/* Estilos de la navegación */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  flex-wrap: wrap;         /* Permite que los links se acomoden en pantallas pequeñas */
+  justify-content: center;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #000;
+}
+
+/* Contenedor flexible para la imagen */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;                /* Toma el espacio disponible */
+  width: 100%;
+  max-height: 80vh;       /* Reserva espacio para que no empuje al menú fuera de la pantalla */
+}
+
+/* Ajuste proporcional de la imagen gigante de 2500x2600 px */
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;   /* Mantiene la proporción original sin deformar */
+}
+
+/* ==========================================
+   ESTILOS PARA MENÚ HAMBURGUESA (ESQUINA SUPERIOR DERECHA)
+   ========================================== */
+
+.burger-menu-container {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1000;
+}
+
+/* Ocultamos el checkbox real */
+.burger-checkbox {
+  display: none;
+}
+
+/* Diseño de las 3 líneas (ícono hamburguesa) */
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.burger-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Menú flotante desplegable */
+.burger-nav {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 15px 0;
+  min-width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.burger-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.burger-nav a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.burger-nav a:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* LÓGICA DE APERTURA CON CHECKBOX */
+
+/* Muestra el menú cuando está activo */
+.burger-checkbox:checked ~ .burger-nav {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Anima la hamburguesa transformándola en una "X" al abrir */
+.burger-checkbox:checked ~ .burger-icon span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.burger-checkbox:checked ~ .burger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-checkbox:checked ~ .burger-icon span:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+

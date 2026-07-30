@@ -1,0 +1,151 @@
+/* Reseteo para eliminar cualquier scroll por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Oculta cualquier barra de desplazamiento */
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Contenedor general centrado vertical y horizontalmente */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center;     /* Centra el contenido horizontalmente */
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  gap: 20px;               /* Espacio entre el menú y el logo */
+}
+
+/* Estilos de la navegación */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  flex-wrap: wrap;         /* Permite que los links se acomoden en pantallas pequeñas */
+  justify-content: center;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #000;
+}
+
+/* Contenedor flexible para la imagen */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;                /* Toma el espacio disponible */
+  width: 100%;
+  max-height: 80vh;       /* Reserva espacio para que no empuje al menú fuera de la pantalla */
+}
+
+/* Ajuste proporcional de la imagen gigante de 2500x2600 px */
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;   /* Mantiene la proporción original sin deformar */
+}
+
+/* ==========================================
+   ADAPTABILIDAD PARA PANTALLAS GRANDES (ESCRITORIO)
+   ========================================== */
+
+@media (min-width: 768px) {
+  
+  /* Fijar el contenedor en la parte izquierda central */
+  .burger-menu-container {
+    position: fixed;
+    top: 50%;
+    left: 0; /* Pegado al borde izquierdo absoluto */
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+
+  /* Ocultamos el botón de hamburguesa tradicional en escritorio */
+  .burger-icon, .burger-checkbox {
+    display: none !important;
+  }
+
+  /* Barra lateral del menú */
+  .burger-nav {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    background-color: transparent; /* Fondo transparente para que se vea el contenido detrás */
+    /* box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 0 12px 12px 0;
+    padding: 15px 0;
+    width: 60px; /* Ancho colapsado: MUESTRA SOLO LOS ÍCONOS */
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* EFECTO HOVER: Expande la barra para revelar los nombres */
+  .burger-menu-container:hover .burger-nav {
+    width: 200px; /* Ancho desplegado completo */
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Alineación de los enlaces */
+  .burger-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .burger-nav a {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 18px; /* Mantiene los íconos centrados en la franja de 60px */
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Los íconos SIEMPRE se ven en la franja izquierda */
+  .burger-nav a i {
+    min-width: 24px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* Oculta/Muestra suavemente los textos */
+  .burger-nav a span {
+    margin-left: 15px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .burger-menu-container:hover .burger-nav a span {
+    opacity: 1;
+  }
+
+  .burger-nav a:hover {
+    background-color: #f0f0f0;
+    color: #000;
+  }
+}
