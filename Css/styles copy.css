@@ -75,39 +75,31 @@ html, body {
   .burger-menu-container {
     position: fixed;
     top: 50%;
-    left: 0; /* Pegado al borde izquierdo absoluto */
+    left: 0; /* Pegado al borde izquierdo */
     transform: translateY(-50%);
     z-index: 1000;
   }
 
-  /* Ocultamos el botón de hamburguesa tradicional en escritorio */
+  /* Ocultar el botón de hamburguesa en escritorio */
   .burger-icon, .burger-checkbox {
     display: none !important;
   }
 
-  /* Barra lateral del menú */
+  /* Barra lateral ESTÁTICA Y ABIERTA */
   .burger-nav {
     position: relative;
     top: 0;
     left: 0;
     transform: none;
-    background-color: transparent; /* Fondo transparente para que se vea el contenido detrás */
-    /* box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); */
+    background-color: #ffffff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 0 12px 12px 0;
     padding: 15px 0;
-    width: 60px; /* Ancho colapsado: MUESTRA SOLO LOS ÍCONOS */
-    overflow: hidden;
+    width: 200px; /* Ancho fijo: muestra siempre ícono y texto */
     white-space: nowrap;
-    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* EFECTO HOVER: Expande la barra para revelar los nombres */
-  .burger-menu-container:hover .burger-nav {
-    width: 200px; /* Ancho desplegado completo */
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
-  }
-
-  /* Alineación de los enlaces */
+  /* Estilos de la lista */
   .burger-nav ul {
     list-style: none;
     padding: 0;
@@ -118,7 +110,7 @@ html, body {
     display: flex;
     align-items: center;
     height: 48px;
-    padding: 0 18px; /* Mantiene los íconos centrados en la franja de 60px */
+    padding: 0 18px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
@@ -126,24 +118,20 @@ html, body {
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  /* Los íconos SIEMPRE se ven en la franja izquierda */
+  /* Ícono siempre visible */
   .burger-nav a i {
     min-width: 24px;
     font-size: 1.2rem;
     text-align: center;
   }
 
-  /* Oculta/Muestra suavemente los textos */
+  /* Texto SIEMPRE visible */
   .burger-nav a span {
     margin-left: 15px;
-    opacity: 0;
-    transition: opacity 0.25s ease;
+    opacity: 1; /* Texto 100% visible sin necesidad de hover */
   }
 
-  .burger-menu-container:hover .burger-nav a span {
-    opacity: 1;
-  }
-
+  /* Cambio de color de fondo al pasar el mouse sobre un ítem */
   .burger-nav a:hover {
     background-color: #f0f0f0;
     color: #000;
