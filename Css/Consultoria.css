@@ -1,0 +1,252 @@
+/* ==========================================
+   ESTILOS GENERALES Y TEMA OSCURO
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #11161d; /* Fondo oscuro principal */
+  color: #e2e8f0;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   MENÚ LATERAL FIJO (A la izquierda)
+   ========================================== */
+
+.burger-menu-container {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.burger-nav {
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 0 12px 12px 0;
+  padding: 15px 0;
+  width: 200px; /* Ancho fijo del menú */
+}
+
+.burger-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.burger-nav a {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 18px;
+  text-decoration: none;
+  color: #11161d;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.burger-nav a i {
+  min-width: 24px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.burger-nav a span {
+  margin-left: 15px;
+}
+
+.burger-nav a:hover {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+/* ==========================================
+   BARRA DE REDES SOCIALES (Superior Derecha)
+   ========================================== */
+
+.social-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+  padding: 20px 40px;
+  background-color: #11161d;
+  border-bottom: 1px solid #1a222d;
+}
+
+.social-nav a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.social-nav a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================
+   CONTENIDO PRINCIPAL Y GRILLA
+   ========================================== */
+
+.main-content {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 30px 30px 60px 230px; /* 230px de padding izquierdo para no montar el menú */
+}
+
+/* Tarjeta Hero Central */
+.hero-card {
+  position: relative; /* Permite posicionar el logo en la esquina de este contenedor */
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 55px 30px 45px 30px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-logo {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  height: 45px; /* Altura del logo */
+  width: auto;
+  object-fit: contain;
+}
+
+.hero-card h1 {
+  font-size: 2.2rem;
+  color: #000;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.hero-card p {
+  color: #000;
+  font-size: 1.05rem;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grilla de 3 Columnas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Fuerza 3 columnas de igual ancho */
+  gap: 20px;
+}
+
+/* Tarjetas Informativas */
+.info-card {
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 30px 25px;
+  min-height: 200px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.info-card h2 {
+  color: #000; /* Color naranja corporativo */
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000;
+  font-weight: bold;
+}
+
+.info-card p {
+  color: #000;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 0.95rem;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ==========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================== */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO (Tablets y Celulares)
+   ========================================== */
+
+@media (max-width: 991px) {
+  .hero-card {
+    padding-top: 75px; /* Crea espacio superior para que el logo no choque con el título */
+  }
+
+  .hero-logo {
+    top: 15px;
+    left: 20px;
+    height: 35px; /* Un poco más pequeño en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    padding: 20px 15px 40px 15px;
+  }
+
+  .burger-menu-container {
+    top: 20px;
+    transform: none;
+  }
+
+  .hero-card {
+    padding: 30px 15px;
+  }
+
+  .hero-card h1 {
+    font-size: 1.6rem;
+  }
+}
