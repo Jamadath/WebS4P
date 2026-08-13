@@ -6,6 +6,7 @@
   <title>Home - S4P</title>
   <link rel="stylesheet" href="Css/styles copy.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="Css/cookies.css">
   
 </head>
 <body>
@@ -29,6 +30,60 @@
   </header>
 
     <script src="JS/Index copy.js"></script>
+    <script src="Css/Cookies.js"></script>
+    <!-- BANNER Y GESTIÓN DE COOKIES -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <h3><i class="fa-solid fa-cookie-bite"></i> Gestión de Cookies</h3>
+      <p>
+        Utilizamos cookies propias y de terceros para asegurar el funcionamiento del sitio web, analizar el tráfico y mejorar tu experiencia. Puedes aceptar todas las cookies, rechazarlas o configurar tus preferencias. Más información en nuestra 
+        <a href="PoliticaPrivacidad.html">Política de Cookies</a>.
+      </p>
+    </div>
+    <div class="cookie-buttons">
+      <button id="btn-reject-cookies" class="cookie-btn btn-secondary">Rechazar</button>
+      <button id="btn-config-cookies" class="cookie-btn btn-outline">Configurar</button>
+      <button id="btn-accept-cookies" class="cookie-btn btn-primary">Aceptar Todas</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE CONFIGURACIÓN DE COOKIES -->
+<div id="cookie-modal" class="cookie-modal">
+  <div class="cookie-modal-content">
+    <h2>Configuración de Preferencias de Cookies</h2>
+    <p>Puedes activar o desactivar las diferentes categorías de cookies según tus preferencias:</p>
     
+    <div class="cookie-option">
+      <div class="option-header">
+        <label for="cookie-essential"><strong>Cookies Necesarias (Técnicas)</strong></label>
+        <input type="checkbox" id="cookie-essential" checked disabled>
+      </div>
+      <p>Son imprescindibles para el funcionamiento del sitio web y no se pueden desactivar.</p>
+    </div>
+
+    <div class="cookie-option">
+      <div class="option-header">
+        <label for="cookie-analytics"><strong>Cookies de Análisis / Métricas</strong></label>
+        <input type="checkbox" id="cookie-analytics">
+      </div>
+      <p>Nos permiten medir el tráfico y analizar cómo interactúan los usuarios con la web.</p>
+    </div>
+
+    <div class="cookie-option">
+      <div class="option-header">
+        <label for="cookie-marketing"><strong>Cookies de Publicidad / Marketing</strong></label>
+        <input type="checkbox" id="cookie-marketing">
+      </div>
+      <p>Utilizadas para mostrar publicidad relevante según tus intereses.</p>
+    </div>
+
+    <div class="modal-buttons">
+      <button id="btn-save-cookie-config" class="cookie-btn btn-primary">Guardar Selección</button>
+    </div>
+  </div>
+</div>
+<script src="JS/cookies.js"></script>
 </body>
 </html>
