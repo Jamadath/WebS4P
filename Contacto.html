@@ -60,7 +60,7 @@
         <p><strong>Política de Privacidad:</strong> <a href="PoliticaPrivacidad.html">Link directo a la página de la política</a></p>
         </section>
 
-      <form class="contact-form" action="#" method="POST">
+      <form class="contact-form" id="contactForm" novalidate>
         <div class="form-grid">
           <div class="form-group">
             <label for="nombre">Nombre *</label>
@@ -137,10 +137,13 @@
 
         </div>
 
-        <button type="submit" class="submit-btn">Enviar Consulta</button>
+        <button type="submit" class="submit-btn" id="submitBtn">Enviar Consulta</button>
+        <div class="form-status" id="statusMsg" role="status" aria-live="polite"></div>
       </form>
     </div>
   </main>
 <script src="JS/cookies.js"></script>
+<script src="JS/config.js"></script>
+<script src="JS/contacto.js"></script>
 </body>
 </html>

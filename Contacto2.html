@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - S4P</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="Css/styles copy.css">
+  <link rel="stylesheet" href="Css/Contacto.css">
+  <link rel="stylesheet" href="Css/Cookies.css">
+</head>
+<body>
+
+  <div class="burger-menu-container">
+    <input type="checkbox" id="burger-toggle" class="burger-checkbox">
+    <label for="burger-toggle" class="burger-icon" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <div class="burger-menu-container">
+      <nav class="burger-nav">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
+            <li><a href="https://www.s4p.cl" target="_blank"><i class="fa-solid fa-file-lines"></i> <span>Informes</span></a></li>
+            <li><a href="Contacto.html"><i class="fa-solid fa-user"></i> <span>Contacto</span></a></li>
+            <li><a href="PoliticaPrivacidad.html"><i class="fa-solid fa-gear"></i> <span>Política de Privacidad</span></a></li>
+            <li><a href="FAQ.html"><i class="fa-solid fa-circle-info"></i> <span>FAQ</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main class="contact-container">
+    <div class="contact-card">
+        <div class="header-title">
+            <img src="logo2500x2600.png" alt="Logo GRCX3" class="title-logo">
+            <h1>Formulario de Contacto S4P</h1>
+        </div>
+      
+      <section class="privacy-notice">
+        <p class="privacy-lead">“Antes de enviar tu consulta y tus datos, por favor, lee la información básica sobre protección de datos que precede al formulario”</p>
+        
+        <h2>INFORMACIÓN BÁSICA DE PROTECCIÓN DE DATOS PERSONALES</h2>
+        <p><strong>Responsable del tratamiento:</strong> S4P</p>
+        <p><strong>Finalidad del tratamiento:</strong> Atender la petición del usuario, enviar la información solicitada y gestionar consultas o reclamaciones realizadas a S4P, sobre el tratamiento de datos personales en el uso de datos de usuarios de clientes en donde S4P mantiene relación contractual con sus clientes empresas. Gestión de la relación contractual con clientes y usuarios; atención de consultas y solicitudes; gestión de contactos comerciales e institucionales; videovigilancia de instalaciones; uso de cookies en plataformas digitales. Si quieres más información, <a href="PoliticaPrivacidad.html">puedes leer nuestra política de privacidad (Aqui) </a></p>
+        
+        <p><strong>Base de licitud:</strong></p>
+        <ul>
+            <li>S4P acredita las bases de licitud, de acuerdo con lo establecido en el artículo 13. de la Ley 19628 y su reforma de Ley 21.719. Para los datos que trata S4P y los distintos tipos de titulares, será necesario hacer una distinción de las bases de licitud. Por ello, presentamos bases de licitud por cada tipo de titular:</li>
+            <li>Ejecución de contrato. Cuando el tratamiento de datos sea necesario para la celebración o ejecución de un contrato entre el titular y el responsable, o para la ejecución de medidas precontractuales adoptadas a solicitud del titular (usuarios finales en virtud de la relación contractual de S4P con sus clientes corporativos)</li>
+            <li>Cumplimiento de obligaciones legales (colaboradores y excolaboradores de S4P que mantienen o mantuvieron relación con S4P y es necesario mantener sus datos personales para responder a las obligaciones legales de la Inspección del Trabajo)</li>
+            <li>Cuando corresponda el consentimiento del titular(colaboradores y excolaboradores de S4P que mantienen o mantuvieron relación con S4P y es necesario que puedan ejercer sus derechos que le reconoce la Ley de Protección de datos personales, como, por ejemplo, el uso de datos biométricos o solicitar una copia de sus datos personales (Derecho a la portabilidad de los datos personales (Art.9)))</li>
+        </ul>
+        
+        <p><strong>Destinatarios:</strong> Proveedores tecnológicos (RGA, VERISURE), y todo aquel que se tratan datos personales y autoridades competentes cuando exista obligación legal.</p></br>
+        <p><strong>Derechos que te asisten:</strong>Acceso, rectificación, supresión, oposición, limitación, portabilidad, bloqueo, retiro del consentimiento y a no ser objeto de decisiones automatizadas. Ver detalle en el bloque siguiente.</p></br>
+        <p><strong>Política de Privacidad:</strong> <a href="PoliticaPrivacidad.html">Link directo a la página de la política</a></p>
+        </section>
+
+      <form class="contact-form" action="#" method="POST">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" required maxlength="50">
+          </div>
+
+          <div class="form-group">
+            <label for="apellido-paterno">Apellido Paterno *</label>
+            <input type="text" id="apellido-paterno" name="apellido-paterno" required maxlength="50">
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="apellido-materno">Apellido Materno *</label>
+            <input type="text" id="apellido-materno" name="apellido-materno" required maxlength="50">
+          </div> -->
+
+          <!-- <div class="form-group">
+            <label for="fono">Fono / Teléfono *</label>
+            <input type="tel" id="fono" name="fono" required maxlength="9" pattern="[0-9]{9}" title="Ingrese un número de teléfono válido de 9 dígitos">
+          </div> -->
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required maxlength="100">
+          </div>
+
+          <div class="form-group">
+            <label for="confirmar-email">Confirmar Email *</label>
+            <input type="email" id="confirmar-email" name="confirmar-email" required maxlength="100">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="pais">País de Residencia *</label>
+            <select id="pais" name="pais" required>
+              <option value="" disabled selected>Selecciona tu país</option>
+              <option value="Chile">Chile</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Colombia">Colombia</option>
+              <option value="España">España</option>
+              <option value="México">México</option>
+              <option value="Perú">Perú</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="motivo">Motivo de Contacto *</label>
+            <select id="motivo" name="motivo" required>
+              <option value="" disabled selected>Selecciona un motivo</option>
+              <option value="Motivo 1">Motivo 1</option>
+              <option value="Motivo 2">Motivo 2</option>
+              <option value="Motivo 3">Motivo 3</option>
+              <option value="Motivo 4">Motivo 4</option>
+              <option value="Motivo 5">Motivo 5</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="detalle">Detalle de Contacto *</label>
+            <textarea id="detalle" name="detalle" rows="5" required maxlength="500"></textarea>
+          </div>
+        </div>
+
+        <div class="checkbox-container">
+          <label class="checkbox-label">
+            <input type="checkbox" name="mayor-edad" required>
+            <span>Declaro ser mayor de edad *</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="consentimiento" required>
+            <span>He leído y acepto la política de protección de datos personales *</span>
+          </label>
+
+        </div>
+
+        <button type="submit" class="submit-btn">Enviar Consulta</button>
+      </form>
+    </div>
+  </main>
+<script src="JS/cookies.js"></script>
+</body>
+</html>
