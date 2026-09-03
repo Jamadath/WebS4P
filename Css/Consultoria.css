@@ -8,31 +8,67 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #11161d; /* Fondo oscuro principal */
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden; /* Evita cualquier desplazamiento horizontal */
+  overflow-y: auto;   /* Permite scroll vertical fluido en móviles */
+  background-color: #11161d;
   color: #e2e8f0;
   font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
 }
 
 /* ==========================================
-   MENÚ LATERAL FIJO (A la izquierda)
+   MENÚ LATERAL RESPONSIVO (Móvil por defecto)
    ========================================== */
 
 .burger-menu-container {
   position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  z-index: 1000;
+  top: 15px;
+  left: 15px;
+  z-index: 2000;
 }
 
-.burger-nav {
+.burger-checkbox {
+  display: none !important;
+}
+
+/* Botón Hamburguesa de 3 líneas */
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 2001;
+  position: relative;
+  background-color: #11161d;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.burger-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
   background-color: #ffffff;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 0 12px 12px 0;
-  padding: 15px 0;
-  width: 220px; /* Ancho fijo del menú */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Panel Desplegable (Oculto a la izquierda en móvil) */
+.burger-nav {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+  padding-top: 65px;
+  transition: left 0.3s ease;
+  z-index: 1999;
 }
 
 .burger-nav ul {
@@ -44,28 +80,47 @@ body {
 .burger-nav a {
   display: flex;
   align-items: center;
-  height: 48px;
-  padding: 0 18px;
+  height: 50px;
+  padding: 0 20px;
   text-decoration: none;
   color: #11161d;
   font-weight: bold;
-  font-size: 0.95rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
 }
 
 .burger-nav a i {
-  min-width: 24px;
+  min-width: 28px;
   font-size: 1.2rem;
   text-align: center;
+  color: #f97316;
 }
 
 .burger-nav a span {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .burger-nav a:hover {
   background-color: #f0f0f0;
   color: #000000;
+}
+
+/* Despliegue en Móvil al hacer click */
+.burger-checkbox:checked ~ .burger-nav {
+  left: 0 !important;
+}
+
+.burger-checkbox:checked ~ .burger-icon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-checkbox:checked ~ .burger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-checkbox:checked ~ .burger-icon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ==========================================
@@ -75,8 +130,8 @@ body {
 .social-nav {
   display: flex;
   justify-content: flex-end;
-  gap: 25px;
-  padding: 20px 40px;
+  gap: 20px;
+  padding: 15px 20px;
   background-color: #11161d;
   border-bottom: 1px solid #1a222d;
 }
@@ -84,7 +139,7 @@ body {
 .social-nav a {
   color: #94a3b8;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: color 0.2s ease;
 }
@@ -94,85 +149,89 @@ body {
 }
 
 /* ==========================================
-   CONTENIDO PRINCIPAL Y GRILLA
+   CONTENIDO PRINCIPAL Y TARJETAS
    ========================================== */
 
 .main-content {
+  width: 100%;
   max-width: 1250px;
   margin: 0 auto;
-  padding: 30px 30px 60px 230px; /* 230px de padding izquierdo para no montar el menú */
+  padding: 70px 15px 40px 15px; /* Padding superior amplio para no tapar contenido con el botón */
 }
 
 /* Tarjeta Hero Central */
 .hero-card {
-  position: relative; /* Permite posicionar el logo en la esquina de este contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: transparent;
   border-radius: 12px;
-  padding: 55px 30px 45px 30px;
+  padding: 20px 15px;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-logo {
-  position: absolute;
-  top: 20px;
-  left: 25px;
-  height: 45px; /* Altura del logo */
+  height: 40px;
   width: auto;
   object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .hero-card h1 {
-  font-size: 2.2rem;
-  color: #000;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #000; /* Texto claro para contrastar con fondo oscuro */
+  margin-bottom: 12px;
   font-weight: bold;
+  word-wrap: break-word;
 }
 
 .hero-card p {
   color: #000;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   max-width: 750px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* Grilla de 3 Columnas */
+/* Grilla Responsiva: 1 Columna en Celulares */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Fuerza 3 columnas de igual ancho */
+  grid-template-columns: 1fr; /* Una columna por defecto en móviles */
   gap: 20px;
+  width: 100%;
 }
 
 /* Tarjetas Informativas */
 .info-card {
-  background-color: transparent;
+  background-color: #fff; /* Fondo ligeramente contrastado para lectura fácil */
   border-radius: 12px;
-  padding: 30px 25px;
-  min-height: 200px;
+  padding: 20px;
+  min-height: auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  word-wrap: break-word;
 }
 
 .info-card h2 {
-  color: #000; /* Color naranja corporativo */
-  font-size: 1.25rem;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #000;
+  color: #000; /* Naranja corporativo */
+  font-size: 1.15rem;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #334155;
   font-weight: bold;
 }
 
 .info-card p {
   color: #000;
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   margin-top: 10px;
 }
 
@@ -184,69 +243,89 @@ body {
 }
 
 .info-value {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #000;
   font-weight: bold;
+  word-break: break-all; /* Evita desborde de textos largos como la Dirección */
 }
 
-/* ==========================================
-   BOTÓN FLOTANTE WHATSAPP
-   ========================================== */
-
+/* Botón Whatsapp */
 .whatsapp-float {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 55px;
-  height: 55px;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   background-color: #25d366;
   color: #ffffff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   z-index: 1000;
-  transition: transform 0.2s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
 }
 
 /* ==========================================
-   DISEÑO RESPONSIVO (Tablets y Celulares)
+   ADAPTABILIDAD A ESCRITORIO (>= 768px)
    ========================================== */
 
-@media (max-width: 991px) {
+@media (min-width: 768px) {
+  
+  /* Menú lateral estático */
+  .burger-menu-container {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .burger-icon, 
+  .burger-checkbox {
+    display: none !important;
+  }
+
+  .burger-nav {
+    position: relative;
+    top: 0;
+    left: 0 !important;
+    height: auto;
+    width: 220px;
+    border-radius: 0 12px 12px 0;
+    padding: 15px 0;
+  }
+
+  .burger-nav a {
+    height: 48px;
+    padding: 0 18px;
+    border-bottom: none;
+    font-size: 0.95rem;
+  }
+
+  /* Distribución de la página en Escritorio */
+  .main-content {
+    padding: 30px 30px 60px 250px; /* Recupera el espacio reservado para la barra */
+  }
+
   .hero-card {
-    padding-top: 75px; /* Crea espacio superior para que el logo no choque con el título */
+    position: relative;
+    padding: 55px 30px 45px 30px;
   }
 
   .hero-logo {
-    top: 15px;
-    left: 20px;
-    height: 35px; /* Un poco más pequeño en pantallas pequeñas */
-  }
-}
-
-@media (max-width: 767px) {
-  .main-content {
-    padding: 20px 15px 40px 15px;
-  }
-
-  .burger-menu-container {
+    position: absolute;
     top: 20px;
-    transform: none;
-  }
-
-  .hero-card {
-    padding: 30px 15px;
+    left: 25px;
+    margin-bottom: 0;
   }
 
   .hero-card h1 {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
+  }
+
+  /* Cambia la grilla a 3 columnas */
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
