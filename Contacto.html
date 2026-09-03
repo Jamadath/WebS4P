@@ -12,53 +12,82 @@
 </head>
 <body>
 
-  <div class="burger-menu-container">
-    <input type="checkbox" id="burger-toggle" class="burger-checkbox">
-    <label for="burger-toggle" class="burger-icon" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
-    <div class="burger-menu-container">
-      <nav class="burger-nav">
-        <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
-            <li><a href="https://informes.s4p.cl/" target="_blank"><i class="fa-solid fa-file-lines"></i> <span>Informes</span></a></li>
-            <li><a href="Contacto.html"><i class="fa-solid fa-user"></i> <span>Contacto</span></a></li>
-            <li><a href="PoliticaPrivacidad.html"><i class="fa-solid fa-gear"></i> <span>Política de Privacidad</span></a></li>
-            <!-- <li><a href="FAQ.html"><i class="fa-solid fa-circle-info"></i> <span>FAQ</span></a></li> -->
-        </ul>
-      </nav>
-    </div>
-  </div>
+  <!-- CONTENEDOR DONDE SE CARGA EL MENÚ AUTOMÁTICAMENTE -->
+  <div id="menu-placeholder"></div>
 
   <main class="contact-container">
     <div class="contact-card">
-        <div class="header-title">
-            <img src="logo2500x2600.png" alt="Logo GRCX3" class="title-logo">
-            <h1>Formulario de Contacto S4P</h1>
-        </div>
+      <div class="header-title">
+        <img src="logo2500x2600.png" alt="Logo S4P" class="title-logo">
+        <h1>Formulario de Contacto S4P</h1>
+      </div>
       
       <section class="privacy-notice">
         <p class="privacy-lead">“Antes de enviar tu consulta y tus datos, por favor, lee la información básica sobre protección de datos que precede al formulario”</p>
         
         <h2>INFORMACIÓN BÁSICA DE PROTECCIÓN DE DATOS PERSONALES</h2>
-        <p><strong>Responsable del tratamiento:</strong> S4P</p>
-        <p><strong>Finalidad del tratamiento:</strong> Atender la petición del usuario, enviar la información solicitada y gestionar consultas o reclamaciones realizadas a S4P, sobre el tratamiento de datos personales en el uso de datos de usuarios de clientes en donde S4P mantiene relación contractual con sus clientes empresas. Gestión de la relación contractual con clientes y usuarios; atención de consultas y solicitudes; gestión de contactos comerciales e institucionales; videovigilancia de instalaciones; uso de cookies en plataformas digitales. Si quieres más información, <a href="PoliticaPrivacidad.html">puedes leer nuestra política de privacidad (Aqui) </a></p>
         
-        <p><strong>Base de licitud:</strong></p>
-        <ul>
-            <li>S4P acredita las bases de licitud, de acuerdo con lo establecido en el artículo 13. de la Ley 19628 y su reforma de Ley 21.719. Para los datos que trata S4P y los distintos tipos de titulares, será necesario hacer una distinción de las bases de licitud. Por ello, presentamos bases de licitud por cada tipo de titular:</li>
-            <li>Ejecución de contrato. Cuando el tratamiento de datos sea necesario para la celebración o ejecución de un contrato entre el titular y el responsable, o para la ejecución de medidas precontractuales adoptadas a solicitud del titular (usuarios finales en virtud de la relación contractual de S4P con sus clientes corporativos)</li>
-            <li>Cumplimiento de obligaciones legales (colaboradores y excolaboradores de S4P que mantienen o mantuvieron relación con S4P y es necesario mantener sus datos personales para responder a las obligaciones legales de la Inspección del Trabajo)</li>
-            <li>Cuando corresponda el consentimiento del titular(colaboradores y excolaboradores de S4P que mantienen o mantuvieron relación con S4P y es necesario que puedan ejercer sus derechos que le reconoce la Ley de Protección de datos personales, como, por ejemplo, el uso de datos biométricos o solicitar una copia de sus datos personales (Derecho a la portabilidad de los datos personales (Art.9)))</li>
-        </ul>
-        
-        <p><strong>Destinatarios:</strong> Proveedores tecnológicos (RGA, VERISURE), y todo aquel que se tratan datos personales y autoridades competentes cuando exista obligación legal.</p></br>
-        <p><strong>Derechos que te asisten:</strong>Acceso, rectificación, supresión, oposición, limitación, portabilidad, bloqueo, retiro del consentimiento y a no ser objeto de decisiones automatizadas. Ver detalle en el bloque siguiente.</p></br>
-        <p><strong>Política de Privacidad:</strong> <a href="PoliticaPrivacidad.html">Link directo a la página de la política</a></p>
-        </section>
+        <div class="privacy-table-container">
+          <table class="privacy-table">
+            <thead>
+              <tr>
+                <th>CONCEPTO</th>
+                <th>INFORMACIÓN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Responsable del tratamiento</strong></td>
+                <td>S4P SpA, con domicilio en Padre Alonso de Ovalle 1545, Santiago, Chile.</td>
+              </tr>
+              <tr>
+                <td><strong>Delegado de Protección de Datos</strong></td>
+                <td>Contacto: <a href="mailto:jean.rengifo@cisoservicechile.cl">jean.rengifo@cisoservicechile.cl</a> / <a href="mailto:derechosarso@s4p.cl">derechosarso@s4p.cl</a></td>
+              </tr>
+              <tr>
+                <td><strong>Finalidades del tratamiento</strong></td>
+                <td>
+                  Gestión de la relación contractual con clientes y usuarios; atención de consultas y solicitudes; gestión de contactos comerciales e institucionales; videovigilancia de instalaciones; uso de cookies en plataformas digitales en el cual se puede recolectar: Dirección IP, fecha y hora, navegador, dispositivo, recurso solicitado, códigos de respuesta y registros técnicos estrictamente necesarios para operación y seguridad. Si quieres más información, puedes leer nuestra política de privacidad: <a href="https://www.s4p.cl/politicaprivacidad/" target="_blank" rel="noopener">https://www.s4p.cl/politicaprivacidad/</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Legitimación</strong></td>
+                <td>
+                  <p><strong>1. Usuarios finales (cliente final):</strong><br>
+                  Base de licitud: Ejecución de contrato. El tratamiento de datos se realiza para cumplir la relación contractual entre S4P y sus clientes corporativos, lo que incluye la gestión y operación de los servicios utilizados por los usuarios finales.</p>
+                  
+                  <p><strong>2. Colaboradores y excolaboradores:</strong><br>
+                  Base de licitud: Cumplimiento de obligaciones legales. Se tratan y conservan datos personales para dar cumplimiento a obligaciones laborales y administrativas exigidas por la normativa vigente.<br>
+                  Base de licitud: Consentimiento del titular. Se solicita consentimiento cuando el tratamiento no está cubierto por otra base legal, como el uso de datos biométricos o el ejercicio de derechos reconocidos por la Ley de Protección de Datos Personales (incluyendo el derecho a la portabilidad).</p>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Destinatarios</strong></td>
+                <td>Entidades del grupo empresarial de S4P SpA, proveedores tecnológicos y de servicios contratados, entidades financieras y autoridades competentes cuando exista obligación legal.</td>
+              </tr>
+              <tr>
+                <td><strong>Transferencias internacionales</strong></td>
+                <td>No se realizan, salvo que se indique lo contrario. Cuando se produzcan, se ejecutarán con las garantías adecuadas conforme a la normativa aplicable.</td>
+              </tr>
+              <tr>
+                <td><strong>Conservación</strong></td>
+                <td>Durante el tiempo necesario para cumplir con la finalidad del tratamiento y para determinar las posibles responsabilidades derivadas.</td>
+              </tr>
+              <tr>
+                <td><strong>Derechos del titular</strong></td>
+                <td>Acceso, rectificación, supresión, oposición, limitación, portabilidad, bloqueo, retiro del consentimiento y a no ser objeto de decisiones automatizadas. Ver detalle en el bloque siguiente.</td>
+              </tr>
+              <tr>
+                <td><strong>Información adicional</strong></td>
+                <td>
+                  Consulta el cuerpo completo de la presente Política de Privacidad para información detallada por actividad de tratamiento.<br>
+                  <a href="https://www.s4p.cl/politicaprivacidad" target="_blank" rel="noopener">https://www.s4p.cl/politicaprivacidad</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       <form class="contact-form" id="contactForm" novalidate>
         <div class="form-grid">
@@ -71,16 +100,6 @@
             <label for="apellido-paterno">Apellido Paterno *</label>
             <input type="text" id="apellido-paterno" name="apellido-paterno" required maxlength="50">
           </div>
-
-          <!-- <div class="form-group">
-            <label for="apellido-materno">Apellido Materno *</label>
-            <input type="text" id="apellido-materno" name="apellido-materno" required maxlength="50">
-          </div> -->
-
-          <!-- <div class="form-group">
-            <label for="fono">Fono / Teléfono *</label>
-            <input type="tel" id="fono" name="fono" required maxlength="9" pattern="[0-9]{9}" title="Ingrese un número de teléfono válido de 9 dígitos">
-          </div> -->
 
           <div class="form-group">
             <label for="email">Email *</label>
@@ -127,14 +146,17 @@
         <div class="checkbox-container">
           <label class="checkbox-label">
             <input type="checkbox" name="mayor-edad" required>
-            <span>Declaro ser mayor de edad *</span>
+            <span>Declaro que soy mayor de 18 años, o cuento con la mayoría de edad legal en mi país (Obligatorio) </span>
           </label>
 
           <label class="checkbox-label">
             <input type="checkbox" name="consentimiento" required>
-            <span>He leído y acepto la política de protección de datos personales *</span>
+            <span>He leído la información sobre el tratamiento de mis datos personales en el aviso de Privacidad presentado anteriormente (para más información, favor consultar política de privacidad).<br><br> </span>
           </label>
 
+          <label class="checkbox-label">
+            <span><b>Nota:</b> al aceptar haber leído el aviso de privacidad, podemos contar con tu consentimiento para atender la solicitud, identificar al interlocutor, y gestionar un seguimiento razonable frente a la solicitud de derechos ARSOB. El cual S4P en las situaciones que sea Encargado de Tratamiento, derivará, la consulta pertinente al responsable de tratamiento.  Mantendremos, la información relacionada a esta consulta, durante un periodo máximo de 12 meses desde la última interacción, salvo que la consulta derive en otra relación o exista una controversia concreta que justifique otro tratamiento. </span>
+          </label>
         </div>
 
         <button type="submit" class="submit-btn" id="submitBtn">Enviar Consulta</button>
@@ -142,8 +164,10 @@
       </form>
     </div>
   </main>
-<script src="JS/cookies.js"></script>
-<script src="JS/config.js"></script>
-<script src="JS/contacto.js"></script>
+
+  <script src="JS/cookies.js"></script>
+  <script src="JS/config.js"></script>
+  <script src="JS/contacto.js"></script>
+  <script src="JS/Menu.js"></script>
 </body>
 </html>
