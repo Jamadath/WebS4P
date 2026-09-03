@@ -1,4 +1,6 @@
-/* Reseteo para eliminar cualquier scroll por defecto */
+/* ==========================================
+   RESET Y ESTILOS BASE
+   ========================================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,29 +10,30 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Oculta cualquier barra de desplazamiento */
+  overflow: hidden; /* Oculta barras de desplazamiento por defecto */
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
 }
 
-/* Contenedor general centrado vertical y horizontalmente */
+/* ==========================================
+   CONTENEDOR GENERAL Y LOGO
+   ========================================== */
 .main-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra el contenido verticalmente */
-  align-items: center;     /* Centra el contenido horizontalmente */
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   padding: 20px;
-  gap: 20px;               /* Espacio entre el menú y el logo */
+  gap: 20px;
 }
 
-/* Estilos de la navegación */
 .nav-list {
   display: flex;
   list-style: none;
   gap: 25px;
-  flex-wrap: wrap;         /* Permite que los links se acomoden en pantallas pequeñas */
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -46,27 +49,140 @@ html, body {
   color: #000;
 }
 
-/* Contenedor flexible para la imagen */
 .logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;                /* Toma el espacio disponible */
+  flex: 1;
   width: 100%;
-  max-height: 80vh;       /* Reserva espacio para que no empuje al menú fuera de la pantalla */
+  max-height: 80vh;
 }
 
-/* Ajuste proporcional de la imagen gigante de 2500x2600 px */
 .logo {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain;   /* Mantiene la proporción original sin deformar */
+  object-fit: contain;
 }
 
 /* ==========================================
-   ADAPTABILIDAD PARA PANTALLAS GRANDES (ESCRITORIO)
+   1. ESTILOS DEL MENÚ EN MÓVILES (< 768px)
+   ========================================== */
+
+/* Contenedor flotante superior izquierdo */
+.burger-menu-container {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2000;
+}
+
+/* Ocultar casilla de verificación */
+.burger-checkbox {
+  display: none !important;
+}
+
+/* Botón Hamburguesa de 3 líneas */
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 2001;
+  position: relative;
+  background-color: #11161d; /* Fondo oscuro para destacar */
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.burger-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #ffffff; /* Líneas blancas */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Panel Desplegable Móvil (Oculto a la izquierda) */
+.burger-nav {
+  position: fixed;
+  top: 0;
+  left: -260px; /* Esconde el menú fuera de pantalla */
+  width: 240px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+  padding-top: 65px;
+  transition: left 0.3s ease;
+  z-index: 1999;
+}
+
+.burger-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.burger-nav a {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.burger-nav a i {
+  min-width: 28px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #000;
+}
+
+.burger-nav a span {
+  margin-left: 12px;
+}
+
+.burger-nav a:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Despliegue del panel en móvil al marcar el checkbox */
+.burger-checkbox:checked ~ .burger-nav {
+  left: 0 !important;
+}
+
+/* Transformación de las 3 líneas a Cruz (X) al abrir */
+.burger-checkbox:checked ~ .burger-icon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-checkbox:checked ~ .burger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-checkbox:checked ~ .burger-icon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Permitir scroll vertical si la pantalla del móvil es muy pequeña */
+@media (max-width: 767px) {
+  html, body {
+    overflow-y: auto;
+  }
+}
+
+/* ==========================================
+   2. ADAPTABILIDAD PARA ESCRITORIO (>= 768px)
    ========================================== */
 
 @media (min-width: 768px) {
@@ -75,13 +191,14 @@ html, body {
   .burger-menu-container {
     position: fixed;
     top: 50%;
-    left: 0; /* Pegado al borde izquierdo */
+    left: 0;
     transform: translateY(-50%);
     z-index: 1000;
   }
 
-  /* Ocultar el botón de hamburguesa en escritorio */
-  .burger-icon, .burger-checkbox {
+  /* Ocultar el botón hamburguesa y la casilla en PC */
+  .burger-icon, 
+  .burger-checkbox {
     display: none !important;
   }
 
@@ -89,17 +206,17 @@ html, body {
   .burger-nav {
     position: relative;
     top: 0;
-    left: 0;
+    left: 0 !important;
     transform: none;
     background-color: #ffffff;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 0 12px 12px 0;
     padding: 15px 0;
-    width: 220px; /* Ancho fijo: muestra siempre ícono y texto */
+    width: 220px;
+    height: auto;
     white-space: nowrap;
   }
 
-  /* Estilos de la lista */
   .burger-nav ul {
     list-style: none;
     padding: 0;
@@ -115,23 +232,22 @@ html, body {
     color: #333;
     font-weight: bold;
     font-size: 0.95rem;
+    border-bottom: none;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  /* Ícono siempre visible */
   .burger-nav a i {
     min-width: 24px;
     font-size: 1.2rem;
     text-align: center;
+    color: inherit;
   }
 
-  /* Texto SIEMPRE visible */
   .burger-nav a span {
     margin-left: 15px;
-    opacity: 1; /* Texto 100% visible sin necesidad de hover */
+    opacity: 1;
   }
 
-  /* Cambio de color de fondo al pasar el mouse sobre un ítem */
   .burger-nav a:hover {
     background-color: #f0f0f0;
     color: #000;
