@@ -242,3 +242,56 @@ h1 {
     height: 35px; /* Un poco más pequeño en pantallas móviles */
   }
 }
+
+/* Estilos para la tabla de protección de datos */
+.privacy-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.privacy-table th, 
+.privacy-table td {
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  vertical-align: top;
+}
+
+.privacy-table th {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  font-weight: bold;
+}
+
+.privacy-table td a {
+  color: #6765cf;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* Ajuste móvil */
+@media screen and (max-width: 767px) {
+  .privacy-table th, 
+  .privacy-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .privacy-table tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+  }
+
+  .privacy-table th {
+    display: none; /* Oculta la cabecera en móvil para mejor lectura vertical */
+  }
+}
